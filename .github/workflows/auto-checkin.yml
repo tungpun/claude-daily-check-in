@@ -11,7 +11,7 @@ on:
     # Execution times are in UTC
     - cron: '19 23,5,11 * * *'
   # Manual trigger for testing
-  
+  workflow_dispatch:
 
 jobs:
   session-reset:
