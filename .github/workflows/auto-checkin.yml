@@ -8,8 +8,10 @@ name: Claude Code Session Reset Scheduler
 # 22:19 UTC+8 -> 14:19 UTC -> Reset at 03:19 UTC+8 next day (additional coverage)
 on:
   schedule:
-    # Execution times are in UTC, corresponding to Taipei time (UTC+8) at 05:19, 10:19, 17:19, 22:19
-    - cron: '19 21,2,9,14 * * *'
+    # Execution times are in UTC
+    - cron: '19 23,5,11 * * *
+    
+  
   # Manual trigger for testing
   workflow_dispatch:
 
