@@ -47,32 +47,16 @@ jobs:
           curl -LsSf https://astral.sh/uv/install.sh | sh
           echo "$HOME/.cargo/bin" >> $GITHUB_PATH
         
-      - name: Execute Session Reset Logic
-        uses: anthropics/claude-code-action@v1
+      - name: Execute Session Reset Logic (Token 1)
+        uses: anthropics/claude-code-action@beta
         continue-on-error: true
         with:
+          mode: agent
           timeout_minutes: 2
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          track_progress: false
-          prompt: |
-            1+1=? # Answer in 1 char
-
-      - name: Log Q&A Check
+          direct_prompt: |
+            1+1=? # Answer should be 2. Do not answer anything else.
+      - name: Log Q&A Check (Token 1)
         run: |
-          uv run --python 3.13 python src/log_qa_check.py --token "${{ secrets.CLAUDE_CODE_OAUTH_TOKEN_1 }}"      
-            
-      # - name: Commit and Push changes
-      #   run: |
-      #     # Add all modified CSV files to the staging area
-      #     git add logs/*.csv
-          
-      #     # Check if there are any actual file changes. If so, commit and push.
-      #     if ! git diff-index --quiet HEAD; then
-      #       echo "Changes detected. Committing and pushing..."
-      #       TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
-      #       git commit -m "chore(bot): Session reset trigger at $TIMESTAMP"
-      #       # Push the changes
-      #       git push origin main
-      #     else
-      #       echo "No changes to commit. Working tree clean."
-      #     fi
+          uv run --python 3.13 python src/log_qa_check.py --token "${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}"
+
