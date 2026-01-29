@@ -3,7 +3,7 @@ name: Claude Code Session Reset Scheduler
 on:
   schedule:
     # Execution times are in UTC
-    - cron: '19 23,5,11 * * *'
+    - cron: '2 23,5,11 * * *'
   # Manual trigger for testing
   workflow_dispatch:
 
