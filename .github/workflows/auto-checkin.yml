@@ -1,11 +1,5 @@
 name: Claude Code Session Reset Scheduler
 
-# Claude Code Session Reset Scheduler - Optimized for work periods
-# Based on ADR-001, ADR-002 & ADR-003: Session reset scheduling with timing optimization and Q&A health check
-# 05:19 UTC+8 -> 21:19 UTC (previous day) -> Reset at 10:19 UTC+8 (morning work period)
-# 10:19 UTC+8 -> 02:19 UTC -> Reset at 15:19 UTC+8 (afternoon work period)
-# 17:19 UTC+8 -> 09:19 UTC -> Reset at 22:19 UTC+8 (evening work period)
-# 22:19 UTC+8 -> 14:19 UTC -> Reset at 03:19 UTC+8 next day (additional coverage)
 on:
   schedule:
     # Execution times are in UTC
